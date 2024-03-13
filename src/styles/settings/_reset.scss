@@ -1,0 +1,29 @@
+* {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    word-break: break-word;
+    font-family: 'Poppins', sans-serif;
+    background-color: color(gray-950);
+
+}
+a {
+    text-decoration: none;
+    color: color(gray-400);
+}
+
+:root {
+    /*Begin color*/
+    @each $name,
+    $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

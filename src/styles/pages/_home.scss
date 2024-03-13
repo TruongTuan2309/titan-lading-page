@@ -1,0 +1,324 @@
+.home-titan {
+    .introduce {
+        position: relative;
+        padding: 150px 64px 0px 64px;
+        .text-introduce {
+            max-width: 50%;
+            h1 {
+                font-size: 64px;
+                font-weight: 600;
+                color: color(gray-25);
+                font-family: 'Syne';
+                padding-bottom: 16px;
+            }
+            .description {
+                position: absolute;
+                font-size: 24px;
+                font-weight: 400;
+                color: color(gray-300);
+                font-family: 'Syne';
+                p {
+                    max-width: 50%;
+                }
+                .button-action {
+                    display: flex;
+                    align-items: center;
+                    >*+* {
+                        margin-left: 16px;
+                    }
+                    margin-top: 16px;
+                }
+            }
+        }
+        .image-gif {
+            aspect-ratio: 16/9;
+            img {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            padding: 64px 24px 0px 24px;
+            .text-introduce {
+                max-width: 100%;
+                .description {
+                    position: relative;
+                    padding-top: 64px;
+                    p {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+    .slider-marquee {
+        height: 141px;
+        .rfm-child {
+            padding: 0px 24px;
+        }
+    }
+    .overview {
+        padding: 64px;
+        padding-bottom: 0px;
+        .top {
+            display: flex;
+            padding-bottom: 150px;
+            .left {
+                width: 50%;
+                .title {
+                    margin-top: 256px;
+                    font-size: 64px;
+                    font-weight: 600;
+                    color: color(gray-25);
+                    font-family: 'Syne';
+                }
+                .description {
+                    font-size: 32px;
+                    font-weight: 400;
+                    color: color(gray-25);
+                    padding-top: 356px;
+                    >*+* {
+                        margin-top: 32px;
+
+                    }
+                }
+            }
+            .right {
+                width: 50%;
+                .titan-wallet {
+                    aspect-ratio: 3/2;
+                    transition: opacity 0.3s ease-in-out;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .background-gradient-and-qrcode {
+            .background-gradient {
+                margin: 0px -64px;
+                position: relative;
+                margin-top: 300px;
+                border-radius: 40px 40px 0px 0px;
+                background: linear-gradient(180deg, #D7CAFB 0%, #5E2FDD 41.15%, #0A101A 100%);
+                height: 953px;
+
+                .iphone {
+                    position: relative;
+                    bottom: 300px;
+                    left: 50%;
+                    display: flex;
+                    justify-content: center;
+                    transform: translateX(-50%);
+                    .content {
+                        aspect-ratio: 680/1400;
+                    }
+                }
+                .gradient-black {
+                    height: 771px;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    background: linear-gradient(180deg, rgba(10, 16, 26, 0.00) 0%, #0A101A 46.49%);
+
+                    .title {
+                        width: 331px;
+                        padding-top: 240px;
+                        font-size: 64px;
+                        font-weight: 600;
+                        color: color(gray-25);
+                        font-family: 'Syne';
+                        text-align: center;
+                        margin: 0 auto;
+                    }
+                    .qr-code {
+                        margin: 24px auto 24px auto;
+                        width: 331px;
+                        border-radius: 16px;
+                        background-color: color(gray-700);
+                        padding: 16px;
+                        display: flex;
+                        align-items: center;
+                        >*+* {
+                            margin-left: 16px;
+                        }
+                        .left {
+                            >*+* {
+                                margin-top: 8px;
+                            }
+                            .label {
+                                font-size: 24px;
+                                font-weight: 600;
+                                line-height: 32px;
+                                color: color(gray-25);
+                                font-family: 'Syne';
+                            }
+                            .desc {
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 20px;
+                                color: color(gray-25);
+
+                            }
+                        }
+                        .right {}
+                    }
+                    .button-action {
+                        margin: 0 auto;
+                        width: 331px;
+                        button {
+                            width: 100%;
+                        }
+                    }
+
+
+                }
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            padding: 64px 24px 0px 24px;
+            .top {
+                flex-direction: column;
+                .left {
+                    width: 100%;
+                    >*+* {
+                        margin-top: 64px;
+                    }
+                    .title {
+                        margin-top: 0px;
+                    }
+                    .description {
+                        padding-top: 0px;
+                    }
+                }
+            }
+
+        }
+    }
+    .list-out-product {
+        position: relative;
+        padding: 0px 64px;
+        @media screen and (max-width: 1200px) {
+            padding: 0px;
+        }
+    }
+    .business-goal {
+        padding: 64px 100px;
+        >*+* {
+            margin-top: 64px;
+        }
+        .title {
+            font-size: 64px;
+            font-weight: 600;
+            color: color(gray-25);
+            font-family: 'Syne';
+        }
+        .row {
+            display: flex;
+            >*+* {
+                margin-left: 30px;
+            }
+            .item {
+                width: 50%;
+                >*+* {
+                    margin-top: 24px;
+                }
+                .right {
+                    >*+* {
+                        margin-top: 8px;
+                    }
+                    .title {
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: color(gray-25);
+                        font-family: 'Syne';
+                        line-height: 32px;
+                    }
+                    .desc {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: color(gray-300);
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            padding: 64px 24px;
+            >*+* {
+                margin-top: 48px;
+            }
+            .row {
+                flex-direction: column;
+                >*+* {
+                    margin-left: 0px;
+                    margin-top: 48px;
+                }
+                .item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .footer-home {
+        position: relative;
+        .spline-canvas {
+            canvas {
+                width: 100% !important;
+            }
+        }
+        .form-email {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 96px;
+            z-index: 3;
+            width: 100%;
+            text-align: center;
+            color: color(gray-25);
+            .text-sub {
+                font-size: 32px;
+                font-weight: 500;
+                letter-spacing: 3.84px;
+            }
+            .join-titan {
+                font-size: 120px;
+                font-weight: bold;
+                font-family: 'Syne';
+            }
+            .desc {
+                max-width: 50%;
+                margin: 0 auto;
+                font-size: 24px;
+                font-weight: 500;
+            }
+            .input-email {
+                margin: 32px auto 0 auto;
+                display: flex;
+                align-items: center;
+                max-width: 30%;
+                >*+* {
+                    margin-left: 16px;
+                }
+                input {
+                    width: 100%;
+                    padding: 12px 14px;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 500;
+                    color: color(gray-500);
+                    &::placeholder {
+                        color: color(gray-500);
+                    }
+                }
+                button {
+                    min-width: 113px;
+                }
+            }
+        }
+    }
+}

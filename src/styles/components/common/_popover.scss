@@ -1,0 +1,42 @@
+.popover-titan {
+    position: relative;
+    .title-popover {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        >*+* {
+            margin-left: 8px;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        color: color(gray-400);
+    }
+    .popover {
+        position: absolute;
+        border-radius: 12px;
+        border: 1px solid color(gray-700);
+        padding: 8px 0px;
+        background-color: color(gray-800);
+        width: 218px;
+        z-index: 3;
+        &.bottomRight {
+            top: 32px;
+            right: 0px;
+        }
+        .popover-item {
+            padding: 16px;
+            cursor: pointer;
+            &:hover {
+                background-color: color(gray-700);
+            }
+            font-size: 14px;
+            line-height: 20px;
+            color: color(gray-25);
+            display: block;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}

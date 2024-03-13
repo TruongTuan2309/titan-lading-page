@@ -1,0 +1,48 @@
+.header-titan {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color(gray-950);
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 64px;
+        .menu-header {
+            padding: 8px 20px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            border: 1px solid color(gray-400);
+            >*+* {
+                margin-left: 32px;
+            }
+            .text-link {
+                font-size: 14px;
+                font-weight: 600;
+                color: color(gray-400);
+                line-height: 20px;
+            }
+        }
+    }
+    .icon-mobile {
+        width: 40px;
+        height: 40px;
+        display: none;
+    }
+    @media screen and (max-width: 1200px) {
+        border-bottom: 1px solid color(gray-400);
+        &__content {
+            padding: 0px 24px;
+            .menu-header,
+            .primary {
+                display: none;
+            }
+        }
+        .icon-mobile {
+            display: block;
+        }
+    }
+}

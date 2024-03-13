@@ -1,0 +1,27 @@
+.button-titan {
+    font-family: 'Syne';
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    &.middle {
+        padding: 10px 16px;
+    }
+    &.large {
+        padding: 12px 20px;
+    }
+    &.small {
+        padding: 8px 12px;
+    }
+    &.primary {
+        border: 1px solid color(brand-yellow);
+        background-color: color(brand-yellow);
+        color: color(gray-950);
+    }
+    &.outline {
+        border: 1px solid color(gray-400);
+        background-color: transparent;
+        color: color(gray-25);
+    }
+}
