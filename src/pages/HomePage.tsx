@@ -61,39 +61,43 @@ const HomePage = () => {
     }
   ]
   const [countImage, setCountImage] = useState(0)
+  const [countImageIphone, setCountImageIphone] = useState(0)
   const imageScroll = [
-    { image: IMAGE.titanWallet1, style: 'w-1/2 right-16 top-[150px]' },
-    { image: IMAGE.titanWallet2, style: 'w-1/2 right-16 top-[583px]' },
-    { image: IMAGE.titanWallet2, style: 'w-1/2 right-16 top-[963px]' },
-    { image: IMAGE.titanWallet3, style: 'top-[1508px] w-[640px] left-1/2 -translate-x-1/2' },
-    { image: IMAGE.titanWallet3, style: 'top-[1912px] w-[493px] -translate-x-1/2 left-1/2' }
+    { image: IMAGE.titanWallet1, style: '' },
+    { image: IMAGE.titanWallet2, style: 'mover-titan-wallet-1' },
+    { image: IMAGE.titanWallet2, style: 'hidden' }
+  ]
+  const imageIphone = [
+    { image: IMAGE.backgroundIphone, style: '' },
+    { image: IMAGE.iphone1, style: 'position-iphone' },
+    { image: IMAGE.iphone2, style: '' }
   ]
   const fromScrollRef = useRef<HTMLParagraphElement>(null)
-  const viaScrollRef = useRef<HTMLDivElement>(null)
+  const viaScrollRef = useRef<HTMLParagraphElement>(null)
   const toScrollRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (fromScrollRef.current && viaScrollRef.current && toScrollRef.current) {
+      if (fromScrollRef.current && viaScrollRef.current && toScrollRef.current && window.innerWidth > 1200) {
         const fromPositionTop = fromScrollRef.current.getBoundingClientRect().top
         if (fromPositionTop > 0) {
           setCountImage(0)
         } else {
+          setCountImage(1)
           const viaPositionTop = viaScrollRef.current.getBoundingClientRect().top
-          const viaPositionBottom = toScrollRef.current.getBoundingClientRect().top
-          const toPositionTop = toScrollRef.current.getBoundingClientRect().bottom
-          if (viaPositionTop > 0) {
-            setCountImage(1)
-          } else {
+          const toPositionTop = toScrollRef.current.getBoundingClientRect().top
+          if (viaPositionTop < 0) {
             setCountImage(2)
-          }
-          if (viaPositionBottom < 0) {
-            setCountImage(3)
+            setCountImageIphone(1)
+          } else {
+            setCountImageIphone(0)
           }
           if (toPositionTop < 0) {
-            setCountImage(4)
+            setCountImageIphone(2)
           }
         }
+      } else {
+        setCountImageIphone(2)
       }
     }
 
@@ -136,14 +140,14 @@ const HomePage = () => {
           </div>
         ))}
       </Marquee>
-      <div className='overview pt-64 relative'>
+      <div className='overview'>
         <div className='top'>
           <div className='left'>
             <p ref={fromScrollRef} className='title'>
               Overview About Titan
             </p>
-            <div ref={viaScrollRef} className='description'>
-              <p>
+            <div className='description'>
+              <p ref={viaScrollRef}>
                 TITAN is an innovative blockchain-based cryptocurrency investment technology company founded in November
                 2020.
               </p>
@@ -162,9 +166,9 @@ const HomePage = () => {
         </div>
         <div className='background-gradient-and-qrcode'>
           <div className='background-gradient'>
-            <div className='iphone'>
-              <div className='content'>
-                <img src={IMAGE.backgroundIphone} alt='' />
+            <div className={`iphone ${imageIphone[countImageIphone].style}`}>
+              <div className={`content `}>
+                <img src={imageIphone[countImageIphone].image} alt='' />
               </div>
             </div>
             <div className='gradient-black'>

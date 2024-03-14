@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     background-color: color(gray-950);
+    position: relative;
     &__content {
         display: flex;
         align-items: center;
@@ -32,6 +33,11 @@
         height: 40px;
         display: none;
     }
+    .menu-mobile {
+        height: 0px;
+        overflow: hidden;
+        padding: 0px;
+    }
     @media screen and (max-width: 1200px) {
         border-bottom: 1px solid color(gray-400);
         &__content {
@@ -42,7 +48,66 @@
             }
         }
         .icon-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-mobile {
             display: block;
+            position: absolute;
+            top: 80px;
+            left: 0px;
+            width: 100vw;
+            background-color: color(gray-950);
+            z-index: 10;
+            &.active {
+                padding: 24px 0px;
+                height: auto;
+            }
+            .text-link {
+                display: block;
+                padding: 12px 16px;
+                color: color(gray-25);
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+            }
+            .select-mobile-header {
+                .title-and-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px 16px;
+                    >*+* {
+                        margin-left: 16px;
+                    }
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    color:color(gray-25);
+                    z-index: 10;
+                }
+                &.active {
+                    background-color: color(gray-700);
+                    .content {
+                        height: auto;
+                        overflow: visible;
+
+                    }
+                }
+                .content {
+                    height: 0px;
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+        }
+        .footer-menu {
+            padding: 24px;
+            border-top: 1px solid color(gray-700);
+            button {
+                width: 100%;
+            }
         }
     }
 }

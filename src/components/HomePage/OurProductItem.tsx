@@ -13,7 +13,9 @@ const OurProductItem = ({ item, rotate = '-rotate-8' }: OurProductItemProps) => 
     <div className='out-product-item'>
       <div className='item'>
         <p>{item.name}</p>
-        <ArrowRightVeto />
+        <div className='right'>
+          <ArrowRightVeto />
+        </div>
       </div>
       <div className={`description ${rotate}`}>
         <div className='description__border-content'>

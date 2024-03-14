@@ -14,6 +14,8 @@ import titanWallet1 from '@/assets/images/titan-wallet-1.png'
 import titanWallet2 from '@/assets/images/titan-wallet-2.png'
 import titanWallet3 from '@/assets/images/titan-wallet-3.png'
 import backgroundIphone from '@/assets/images/bg-iphone.png'
+import iphone1 from '@/assets/images/iphone-1.png'
+import iphone2 from '@/assets/images/iphone-2.png'
 
 const IMAGE = {
   homeGift,
@@ -31,9 +33,12 @@ const IMAGE = {
   titanWallet1,
   titanWallet2,
   titanWallet3,
-  backgroundIphone
+  backgroundIphone,
+  iphone1,
+  iphone2
 }
 export { IMAGE }
 
 export { ReactComponent as LogoTitan } from '@/assets/icons/logo-titan.svg'
 export { ReactComponent as ArrowRightVeto } from '@/assets/icons/arrow-right.svg'
+export { ReactComponent as IconClose } from '@/assets/icons/icon-close.svg'

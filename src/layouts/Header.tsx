@@ -1,8 +1,9 @@
-import { LogoTitan } from '@/assets'
+import { IconClose, LogoTitan } from '@/assets'
 import ButtonTitan from '@/components/common/ButtonTitan'
 import Popover from '@/components/common/Popover'
-import { HambergerMenu, Menu } from 'iconsax-react'
-import React from 'react'
+import SelectHeaderMobile from '@/layouts/SelectHeaderMobile'
+import { ArrowDown2, HambergerMenu } from 'iconsax-react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
@@ -22,6 +23,8 @@ const Header = () => {
     { name: 'Events', url: '' },
     { name: 'Community Hub', url: '' }
   ]
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <header className='header-titan '>
       <div className='header-titan__content'>
@@ -40,8 +43,22 @@ const Header = () => {
           <Popover title='Community' menuItem={menuCommunity} />
         </div>
         <ButtonTitan className='text-sm'>Explore</ButtonTitan>
-        <div className='icon-mobile'>
-          <HambergerMenu color='#FFFFFF' size='40' />
+        <div className='icon-mobile' onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <IconClose className='icon-close' /> : <HambergerMenu color='#FFFFFF' size='40' />}
+        </div>
+      </div>
+      <div className={`menu-mobile ${isOpen ? 'active' : ''}`}>
+        <Link to='' className='text-link'>
+          Home
+        </Link>
+        <Link to='' className='text-link'>
+          About Titan
+        </Link>
+        <SelectHeaderMobile menu={menuSolutions} title='Solutions' />
+        <SelectHeaderMobile menu={menuBuilds} title='Build' />
+        <SelectHeaderMobile menu={menuCommunity} title='Community' />
+        <div className='footer-menu'>
+          <ButtonTitan>Explore</ButtonTitan>
         </div>
       </div>
     </header>
