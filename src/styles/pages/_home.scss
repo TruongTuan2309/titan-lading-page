@@ -490,3 +490,36 @@
         }
     }
 }
+
+.bg-gradient-animation {
+    position: relative;
+    height: 900px;
+    width: 100%;
+    border-radius: 0px 0px 40px 40px;
+    overflow: hidden;
+    background: linear-gradient(to top, #D7CAFB 0%, #5E2FDD 41.15%, #0A101A 100%);
+    .circle {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        bottom: 0px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: color(gray-950);
+        &.twitter {
+            background-color: color(brand-yellow);
+
+        }
+        &.telegram {
+            background-color: color(text-link);
+        }
+        @media screen and (max-width: 1200px) {
+            font-size: 24px;
+
+        }
+    }
+}

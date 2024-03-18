@@ -5,6 +5,7 @@
     justify-content: center;
     background-color: color(gray-950);
     position: relative;
+    width: 100%;
     &__content {
         display: flex;
         align-items: center;
@@ -62,7 +63,7 @@
             z-index: 10;
             &.active {
                 padding: 24px 0px;
-                height: auto;
+                height: calc(100vh - 80px);
             }
             .text-link {
                 display: block;

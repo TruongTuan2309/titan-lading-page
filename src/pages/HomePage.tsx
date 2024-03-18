@@ -1,11 +1,11 @@
-import { ArrowRightVeto, IMAGE } from '@/assets'
+import { IMAGE } from '@/assets'
 import ButtonTitan from '@/components/common/ButtonTitan'
+import BgGradientAnimation from '@/components/HomePage/BgGradientAnimation'
 import OurProductItem from '@/components/HomePage/OurProductItem'
-import Spline from '@splinetool/react-spline'
+import httpRequest from '@/services/http'
 import { Chart, Coin1, Convertshape2, Mobile } from 'iconsax-react'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Marquee from 'react-fast-marquee'
-
 const HomePage = () => {
   const listPartner = [
     { id: 1, img: IMAGE.partnerWarppipe },
@@ -75,7 +75,7 @@ const HomePage = () => {
   const fromScrollRef = useRef<HTMLParagraphElement>(null)
   const viaScrollRef = useRef<HTMLParagraphElement>(null)
   const toScrollRef = useRef<HTMLParagraphElement>(null)
-
+  const [email, setEmail] = useState('')
   useEffect(() => {
     const handleScroll = () => {
       if (fromScrollRef.current && viaScrollRef.current && toScrollRef.current && window.innerWidth > 1200) {
@@ -104,6 +104,16 @@ const HomePage = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const handleSubmit = async () => {
+    const payload = {
+      email: email
+    }
+    const response = await httpRequest.post('/guest/getting-in-touch', payload)
+    if (response.data.success) {
+      setEmail('')
+    }
+  }
 
   return (
     <div className='home-titan'>
@@ -233,14 +243,21 @@ const HomePage = () => {
         </div>
       </div>
       <div className='footer-home'>
-        <Spline scene='https://prod.spline.design/TWzJtFa5fvoieBaZ/scene.splinecode' className='spline-canvas' />
+        <BgGradientAnimation />
         <div className='form-email'>
           <p className='text-sub'>GET THE DETAIL</p>
           <p className='join-titan'>Join with Titan</p>
           <p className='desc'>Subscribe to our newsletter and get updates from the Titan ecosystem straight to your</p>
           <div className='input-email'>
-            <input type='text' placeholder='Enter your email' />
-            <ButtonTitan size='large'>Subscribe</ButtonTitan>
+            <input
+              type='text'
+              placeholder='Enter your email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <ButtonTitan size='large' onClick={handleSubmit}>
+              Subscribe
+            </ButtonTitan>
           </div>
         </div>
       </div>

@@ -1,12 +1,14 @@
 import { IconClose, LogoTitan } from '@/assets'
 import ButtonTitan from '@/components/common/ButtonTitan'
 import Popover from '@/components/common/Popover'
+import { useCheckDevice } from '@/hooks/useCheckDevice'
 import SelectHeaderMobile from '@/layouts/SelectHeaderMobile'
 import { ArrowDown2, HambergerMenu } from 'iconsax-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const { isMobile } = useCheckDevice()
   const menuSolutions = [
     { name: 'Bots Trading', url: '' },
     { name: 'Smart Trade', url: '' },
@@ -47,20 +49,22 @@ const Header = () => {
           {isOpen ? <IconClose className='icon-close' /> : <HambergerMenu color='#FFFFFF' size='40' />}
         </div>
       </div>
-      <div className={`menu-mobile ${isOpen ? 'active' : ''}`}>
-        <Link to='' className='text-link'>
-          Home
-        </Link>
-        <Link to='' className='text-link'>
-          About Titan
-        </Link>
-        <SelectHeaderMobile menu={menuSolutions} title='Solutions' />
-        <SelectHeaderMobile menu={menuBuilds} title='Build' />
-        <SelectHeaderMobile menu={menuCommunity} title='Community' />
-        <div className='footer-menu'>
-          <ButtonTitan>Explore</ButtonTitan>
+      {isMobile && (
+        <div className={`menu-mobile ${isOpen ? 'active' : ''}`}>
+          <Link to='' className='text-link'>
+            Home
+          </Link>
+          <Link to='' className='text-link'>
+            About Titan
+          </Link>
+          <SelectHeaderMobile menu={menuSolutions} title='Solutions' />
+          <SelectHeaderMobile menu={menuBuilds} title='Build' />
+          <SelectHeaderMobile menu={menuCommunity} title='Community' />
+          <div className='footer-menu'>
+            <ButtonTitan>Explore</ButtonTitan>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   )
 }
