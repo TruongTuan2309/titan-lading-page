@@ -4,6 +4,7 @@ import BgGradientAnimation from '@/components/HomePage/BgGradientAnimation'
 import OurProductItem from '@/components/HomePage/OurProductItem'
 import httpRequest from '@/services/http'
 import { Chart, Coin1, Convertshape2, Mobile } from 'iconsax-react'
+import QRCode from 'qrcode.react'
 import { useEffect, useRef, useState } from 'react'
 import Marquee from 'react-fast-marquee'
 const HomePage = () => {
@@ -187,6 +188,14 @@ const HomePage = () => {
                 <div className='left'>
                   <p className='label'>Get Titan</p>
                   <p className='desc'>Scan this QR code to download Titan in your phone.</p>
+                </div>
+                <div className='right'>
+                  <QRCode
+                    value='https://play.google.com/store/apps/details?id=org.titan.app&hl=en-EN'
+                    size={100}
+                    level={'H'}
+                    includeMargin={true}
+                  />
                 </div>
               </div>
               <div className='button-action'>

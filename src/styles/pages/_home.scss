@@ -183,6 +183,11 @@
 
                             }
                         }
+                        .right {
+                            canvas {
+                                border-radius: 16px;
+                            }
+                        }
                     }
                     .button-action {
                         margin: 0 auto;
