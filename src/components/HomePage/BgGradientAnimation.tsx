@@ -1,9 +1,11 @@
 import { useCheckDevice } from '@/hooks/useCheckDevice'
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 const BgGradientAnimation = () => {
   const controls = useAnimation()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   const sequence = async () => {
     await controls.start('initial')
     await controls.start('drop')
@@ -95,10 +97,12 @@ const BgGradientAnimation = () => {
     }
   }
   useEffect(() => {
-    sequence()
-  }, [controls])
+    if (isInView) {
+      sequence()
+    }
+  }, [controls, isInView])
   return (
-    <div className='bg-gradient-animation'>
+    <div className='bg-gradient-animation' ref={ref}>
       <motion.a
         href='https://twitter.com/TitanSmartTrade'
         target='_blank'
@@ -107,6 +111,7 @@ const BgGradientAnimation = () => {
         variants={variantTwitter}
         className='circle twitter'
         style={{ width: widthCircle, height: widthCircle }}
+        viewport={{ once: true }}
       >
         Twitter
       </motion.a>
@@ -118,6 +123,7 @@ const BgGradientAnimation = () => {
         variants={variantTelegram}
         className='circle telegram'
         style={{ width: widthCircle, height: widthCircle }}
+        viewport={{ once: true }}
       >
         Telegram
       </motion.a>
